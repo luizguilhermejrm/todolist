@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './Main.css';
+import { FaPlus, FaEdit, FaWindowClose } from 'react-icons/fa';
 
 export default class Main extends Component {
     state = {
         novaTarefa: '',
+        tarefas: ['Fazer café', 'Fazer arroz', 'Fazer carne'],
     };
 
     handleChange = (e) => {
@@ -13,15 +15,33 @@ export default class Main extends Component {
     };
 
     render() {
-        const { novaTarefa } = this.state;
+        const { novaTarefa, tarefas } = this.state;
 
         return (
             <div className="main">
                 <h1>Lista de Tarefas</h1>
-                <form action="#">
-                    <input onChange={this.handleChange} type="text"></input>
-                    <button type="submit">Enviar</button>
+                <form action="#" className="form">
+                    <input
+                        onChange={this.handleChange}
+                        type="text"
+                        value={novaTarefa}
+                    />
+                    <button type="submit">
+                        <FaPlus />
+                    </button>
                 </form>
+
+                <ul className="tarefas">
+                    {tarefas.map((tarefa) => (
+                        <li key={tarefa}>
+                            {tarefa}
+                            <div>
+                                <FaEdit className="edit" />
+                                <FaWindowClose className="delete" />
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
         );
     }
