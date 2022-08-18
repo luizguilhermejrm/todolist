@@ -21,6 +21,7 @@
     "rules": {
         "react/jsx-filename-extension": "off",
         "react/react-in-jsx-scope": "off",
-        "react/state-in-constructor": "off"
+        "react/state-in-constructor": "off",
+        "react/forbid-prop-types": "off"
     }
 }
